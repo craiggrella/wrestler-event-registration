@@ -1,3 +1,4 @@
+/* Wrestler Registration Styles */
 .wrestler-registration-section {
     margin: 30px 0;
     padding: 20px;
@@ -9,6 +10,7 @@
     margin-top: 0;
     margin-bottom: 20px;
     font-size: 24px;
+    font-weight: 700;
 }
 
 .wrestler-registration-item {
@@ -19,33 +21,43 @@
 }
 
 .wrestler-registration-item h4 {
-    margin: 0 0 10px 0;
+    margin: 0 0 12px 0;
     font-size: 18px;
+    font-weight: 700;
 }
 
 .registration-buttons {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    width: 100%;
 }
 
 .registration-btn {
-    flex: 1;
-    padding: 12px 20px;
+    padding: 14px 20px;
     border: 2px solid #ddd;
     background: white;
     cursor: pointer;
     border-radius: 6px;
     font-size: 16px;
     font-weight: 600;
-    transition: all 0.3s;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    width: 100%;
+    min-height: 50px;
 }
 
-.registration-btn:hover {
+.registration-btn:hover:not(:disabled) {
     background: #f0f0f0;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.registration-btn:active:not(:disabled) {
+    transform: translateY(0);
 }
 
 .registration-btn:disabled {
@@ -56,6 +68,7 @@
 .registration-btn .icon {
     font-size: 20px;
     font-weight: bold;
+    flex-shrink: 0;
 }
 
 .attend-btn.active {
@@ -64,10 +77,20 @@
     color: white;
 }
 
+.attend-btn.active:hover:not(:disabled) {
+    background: #00acc1;
+    border-color: #00acc1;
+}
+
 .decline-btn.active {
     background: #f44336;
     border-color: #f44336;
     color: white;
+}
+
+.decline-btn.active:hover:not(:disabled) {
+    background: #e53935;
+    border-color: #e53935;
 }
 
 .registration-response-section {
@@ -81,6 +104,7 @@
     margin-top: 0;
     margin-bottom: 15px;
     font-size: 20px;
+    font-weight: 700;
 }
 
 .response-counts {
@@ -92,21 +116,24 @@
 .response-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px;
+    gap: 12px;
+    padding: 12px;
     border-radius: 4px;
     background: #f9f9f9;
 }
 
 .response-item .icon {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     font-weight: bold;
     font-size: 18px;
+    flex-shrink: 0;
 }
 
 .response-item.attending .icon {
@@ -124,11 +151,6 @@
     color: white;
 }
 
-.response-item.host .icon {
-    background: #ffc107;
-    color: white;
-}
-
 .response-item .count {
     font-size: 16px;
     font-weight: 500;
@@ -140,15 +162,74 @@
     border: 1px solid #ffc107;
     border-radius: 4px;
     color: #856404;
+    font-size: 16px;
 }
 
-/* Mobile responsive */
-@media (max-width: 768px) {
+/* Tablet and below (991px) */
+@media (max-width: 991px) {
     .registration-buttons {
-        flex-direction: column;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile landscape (767px) */
+@media (max-width: 767px) {
+    .wrestler-registration-section {
+        padding: 16px;
+        margin: 20px 0;
+    }
+    
+    .registration-buttons {
+        grid-template-columns: 1fr;
+        gap: 10px;
     }
     
     .registration-btn {
-        width: 100%;
+        font-size: 15px;
+        padding: 16px 20px;
+        min-height: 52px;
+    }
+    
+    .wrestler-registration-item {
+        padding: 12px;
+    }
+    
+    .registration-response-section {
+        padding: 16px;
+    }
+}
+
+/* Mobile portrait (478px) */
+@media (max-width: 478px) {
+    .wrestler-registration-section {
+        padding: 12px;
+        margin: 16px 0;
+    }
+    
+    .wrestler-registration-item {
+        padding: 12px;
+        margin-bottom: 16px;
+    }
+    
+    .wrestler-registration-item h4 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .registration-response-section {
+        padding: 12px;
+        margin-top: 20px;
+    }
+    
+    .response-item {
+        padding: 10px;
+        gap: 10px;
+    }
+}
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .registration-btn {
+        min-height: 54px;
     }
 }

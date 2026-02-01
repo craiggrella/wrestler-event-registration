@@ -40,7 +40,6 @@ function wer_display_registration($event_id) {
                         class="registration-btn attend-btn <?php echo $current_status === 'attending' ? 'active' : ''; ?>"
                         data-event-id="<?php echo esc_attr($event_id); ?>"
                         data-wrestler-id="<?php echo esc_attr($wrestler['id']); ?>"
-                        data-wrestler-name="<?php echo esc_attr($wrestler['name']); ?>"
                         data-status="attending">
                         <span class="icon">✓</span> Attending
                     </button>
@@ -48,7 +47,6 @@ function wer_display_registration($event_id) {
                         class="registration-btn decline-btn <?php echo $current_status === 'declined' ? 'active' : ''; ?>"
                         data-event-id="<?php echo esc_attr($event_id); ?>"
                         data-wrestler-id="<?php echo esc_attr($wrestler['id']); ?>"
-                        data-wrestler-name="<?php echo esc_attr($wrestler['name']); ?>"
                         data-status="declined">
                         <span class="icon">✕</span> Decline
                     </button>

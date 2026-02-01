@@ -20,13 +20,18 @@ function wer_get_parent_wrestlers($user_id) {
         return [];
     }
     
+    // Get custom fields the correct way for FluentCRM
+    $custom_fields = (array) $contact->custom_fields();
+    
     $wrestlers = [];
     
+    // Loop through up to 5 wrestlers
     for ($i = 1; $i <= 5; $i++) {
-        $wrestler_id = $contact->{"wrestler_{$i}_id"} ?? '';
-        $first_name = $contact->{"wrestler_{$i}_first_name"} ?? '';
-        $last_name = $contact->{"wrestler_{$i}_last_name"} ?? '';
+        $wrestler_id = $custom_fields["wrestler_{$i}_id"] ?? '';
+        $first_name = $custom_fields["wrestler_{$i}_first_name"] ?? '';
+        $last_name = $custom_fields["wrestler_{$i}_last_name"] ?? '';
         
+        // Combine first and last name
         $full_name = trim($first_name . ' ' . $last_name);
         
         if (!empty($wrestler_id) && !empty($full_name)) {

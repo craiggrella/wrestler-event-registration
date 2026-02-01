@@ -29,4 +29,22 @@ The plugin expects the following custom fields in FluentCRM (for up to 5 wrestle
 
 ## Usage
 
-Add this shortcode to you
+Add this shortcode to your event template:
+
+[wrestler_registration]
+
+## Features
+
+- Real-time registration updates via AJAX
+- Parents can change registration status anytime
+- Live response counts (attending/declined/unanswered)
+- Mobile responsive design
+- Secure database operations with prepared statements
+
+## Author
+
+Craig Grella / Mt Lebanon Youth Wrestling
+
+## License
+
+GPL v2 or later

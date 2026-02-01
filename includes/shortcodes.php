@@ -74,10 +74,6 @@ function wer_display_registration($event_id) {
                     <span class="icon">✕</span>
                     <span class="count"><?php echo $counts['declined']; ?> declined</span>
                 </div>
-                <div class="response-item host">
-                    <span class="icon">★</span>
-                    <span class="count"><?php echo $counts['total_hosts']; ?> of 1 host has accepted</span>
-                </div>
             </div>
         </div>
     </div>

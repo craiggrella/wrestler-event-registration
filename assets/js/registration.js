@@ -14,7 +14,6 @@ jQuery(document).ready(function($) {
                 nonce: werAjax.nonce,
                 event_id: $btn.data('event-id'),
                 wrestler_id: $btn.data('wrestler-id'),
-                wrestler_name: $btn.data('wrestler-name'),
                 status: $btn.data('status')
             },
             success: function(response) {

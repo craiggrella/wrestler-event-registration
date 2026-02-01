@@ -114,7 +114,6 @@ function wer_get_registration_counts($event_id) {
     return [
         'attending' => isset($counts['attending']) ? (int)$counts['attending']->count : 0,
         'unanswered' => isset($counts['unanswered']) ? (int)$counts['unanswered']->count : 0,
-        'declined' => isset($counts['declined']) ? (int)$counts['declined']->count : 0,
-        'total_hosts' => 1
-    ];
+        'declined' => isset($counts['declined']) ? (int)$counts['declined']->count : 0
+	];
 }

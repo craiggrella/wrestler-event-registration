@@ -42,7 +42,6 @@ function wer_activate() {
         event_id bigint(20) UNSIGNED NOT NULL,
         parent_user_id bigint(20) UNSIGNED NOT NULL,
         wrestler_id varchar(100) NOT NULL,
-        wrestler_name varchar(255) NOT NULL,
         status varchar(20) NOT NULL DEFAULT 'unanswered',
         registered_date datetime DEFAULT CURRENT_TIMESTAMP,
         updated_date datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -56,7 +55,7 @@ function wer_activate() {
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
     dbDelta($sql);
     
-    add_option('wer_db_version', WER_VERSION);
+    update_option('wer_db_version', WER_VERSION);
 }
 register_activation_hook(__FILE__, 'wer_activate');
 
